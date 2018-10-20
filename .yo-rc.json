@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mgnle.studentdatamanager"
+    },
+    "jhipsterVersion": "5.5.0",
+    "applicationType": "monolith",
+    "baseName": "StudentDataManager",
+    "packageName": "com.mgnle.studentdatamanager",
+    "packageFolder": "com/mgnle/studentdatamanager",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGQ2MjMzMTczMTRiMzAzYTdkZDEwZWQ3ZmFjYzU1MWVkNmQ3ODFjNmIwNDc4ZTI3YmQyOGMxMjk4ZmZlMWE1YjFkNDBjNGE1YmI5NmQ1OWI5NTQxNjQwY2Y2MDk1N2JjMDA3YjUwYWIzNmY2MjdiZmVjY2E2NjJhZDljYjA0OGE=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  }
+}
