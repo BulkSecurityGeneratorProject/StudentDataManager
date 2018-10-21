@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studentGoal">
+            <h2><span>Student Goal</span> {{studentGoal.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Category</span></dt>
+                <dd>
+                    <span>{{studentGoal.category}}</span>
+                </dd>
+                <dt><span>Tracking Method</span></dt>
+                <dd>
+                    <span>{{studentGoal.trackingMethod}}</span>
+                </dd>
+                <dt><span>Objective</span></dt>
+                <dd>
+                    <span>{{studentGoal.objective}}</span>
+                </dd>
+                <dt><span>Mastery Criteria</span></dt>
+                <dd>
+                    <span>{{studentGoal.masteryCriteria}}</span>
+                </dd>
+                <dt><span>Academic Year</span></dt>
+                <dd>
+                    <span>{{studentGoal.academicYear}}</span>
+                </dd>
+                <dt><span>Active</span></dt>
+                <dd>
+                    <span>{{studentGoal.active}}</span>
+                </dd>
+                <dt><span>Mastered</span></dt>
+                <dd>
+                    <span>{{studentGoal.mastered}}</span>
+                </dd>
+                <dt><span>Progress Reports Completed</span></dt>
+                <dd>
+                    <span>{{studentGoal.progressReportsCompleted}}</span>
+                </dd>
+                <dt><span>Student</span></dt>
+                <dd>
+                    <div *ngIf="studentGoal.student">
+                        <a [routerLink]="['/student', studentGoal.student?.id, 'view']">{{studentGoal.student?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/student-goal', studentGoal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-student-goal-heading">Create or edit a Student Goal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!studentGoal.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="studentGoal.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_category">Category</label>
+                    <input type="text" class="form-control" name="category" id="field_category"
+                        [(ngModel)]="studentGoal.category" required/>
+                    <div [hidden]="!(editForm.controls.category?.dirty && editForm.controls.category?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.category?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_trackingMethod">Tracking Method</label>
+                    <select class="form-control" name="trackingMethod" [(ngModel)]="studentGoal.trackingMethod" id="field_trackingMethod"  required>
+                        <option value="DATA_COLLECTION">DATA_COLLECTION</option>
+                        <option value="WORK_SAMPLES">WORK_SAMPLES</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.trackingMethod?.dirty && editForm.controls.trackingMethod?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.trackingMethod?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_objective">Objective</label>
+                    <input type="text" class="form-control" name="objective" id="field_objective"
+                        [(ngModel)]="studentGoal.objective" required/>
+                    <div [hidden]="!(editForm.controls.objective?.dirty && editForm.controls.objective?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.objective?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_masteryCriteria">Mastery Criteria</label>
+                    <input type="text" class="form-control" name="masteryCriteria" id="field_masteryCriteria"
+                        [(ngModel)]="studentGoal.masteryCriteria" required/>
+                    <div [hidden]="!(editForm.controls.masteryCriteria?.dirty && editForm.controls.masteryCriteria?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.masteryCriteria?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_academicYear">Academic Year</label>
+                    <input type="number" class="form-control" name="academicYear" id="field_academicYear"
+                        [(ngModel)]="studentGoal.academicYear" required min="1900" jhiMin="1900" max="9999" jhiMax="9999"/>
+                    <div [hidden]="!(editForm.controls.academicYear?.dirty && editForm.controls.academicYear?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.academicYear?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.academicYear?.errors?.min">
+                            This field should be at least 1900.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.academicYear?.errors?.max">
+                            This field cannot be more than 9999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.academicYear?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_active">Active</label>
+                    <input type="checkbox" class="form-control" name="active" id="field_active"
+                        [(ngModel)]="studentGoal.active" />
+                    <div [hidden]="!(editForm.controls.active?.dirty && editForm.controls.active?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.active?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mastered">Mastered</label>
+                    <input type="checkbox" class="form-control" name="mastered" id="field_mastered"
+                        [(ngModel)]="studentGoal.mastered" />
+                    <div [hidden]="!(editForm.controls.mastered?.dirty && editForm.controls.mastered?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mastered?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_progressReportsCompleted">Progress Reports Completed</label>
+                    <input type="number" class="form-control" name="progressReportsCompleted" id="field_progressReportsCompleted"
+                        [(ngModel)]="studentGoal.progressReportsCompleted" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.progressReportsCompleted?.dirty && editForm.controls.progressReportsCompleted?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.progressReportsCompleted?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.progressReportsCompleted?.errors?.min">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.progressReportsCompleted?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_student">Student</label>
+                    <select class="form-control" id="field_student" name="student" [(ngModel)]="studentGoal.student"  required>
+                        <option *ngIf="!editForm.value.student" [ngValue]="null" selected></option>
+                        <option [ngValue]="studentOption.id === studentGoal.student?.id ? studentGoal.student : studentOption" *ngFor="let studentOption of students; trackBy: trackStudentById">{{studentOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.student?.dirty && editForm.controls.student?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.student?.errors?.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

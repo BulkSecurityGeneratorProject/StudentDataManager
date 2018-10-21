@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span>Student Goals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-student-goal" [routerLink]="['/student-goal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Student Goal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="studentGoals">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Category</span></th>
+            <th><span>Tracking Method</span></th>
+            <th><span>Objective</span></th>
+            <th><span>Mastery Criteria</span></th>
+            <th><span>Academic Year</span></th>
+            <th><span>Active</span></th>
+            <th><span>Mastered</span></th>
+            <th><span>Progress Reports Completed</span></th>
+            <th><span>Student</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let studentGoal of studentGoals ;trackBy: trackId">
+                <td><a [routerLink]="['/student-goal', studentGoal.id, 'view' ]">{{studentGoal.id}}</a></td>
+                <td>{{studentGoal.category}}</td>
+                <td>{{studentGoal.trackingMethod}}</td>
+                <td>{{studentGoal.objective}}</td>
+                <td>{{studentGoal.masteryCriteria}}</td>
+                <td>{{studentGoal.academicYear}}</td>
+                <td>{{studentGoal.active}}</td>
+                <td>{{studentGoal.mastered}}</td>
+                <td>{{studentGoal.progressReportsCompleted}}</td>
+                <td>
+                    <div *ngIf="studentGoal.student">
+                        <a [routerLink]="['../student', studentGoal.student?.id, 'view' ]" >{{studentGoal.student?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/student-goal', studentGoal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/student-goal', studentGoal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'student-goal/'+ studentGoal.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
